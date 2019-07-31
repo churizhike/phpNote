@@ -16,8 +16,15 @@ class Account {
     }
 }
 $a = new Account();
-echo $a->user;
-$a->name = 5;
-echo $a->name;
-// echo $a->big;
+
+$reflect = new ReflectionObject($a);
+$props = $reflect->getProperties();
+foreach($props as $prop) {
+    print $prop->getName();
+}
+
+$m = $reflect->getMethods();
+foreach($m as $prop) {
+    print $prop->getName();
+}
 ?>
